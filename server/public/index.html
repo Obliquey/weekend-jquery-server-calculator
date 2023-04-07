@@ -11,6 +11,26 @@
 </head>
 <body>
     <header>SERVER-ing up some Calculations!</header>
-    
+    <section id="calculatorInput">
+        <form>
+            <input type="text" id="inputOne">
+                <span id="operatorButtons">
+                    <button id="addButton" class="operators">+</button>
+                    <button id="subtractButton" class="operators">-</button>
+                    <button id="multiplyButton" class="operators">x</button>
+                    <button id="divideButton" class="operators">/</button>
+                </span>
+            <input type="text" id="inputTwo">
+                <span id="finishers">
+                    <button class="finisherButton" id="equalsButton">=</button>
+                    <button class="finisherButton" id="clearFieldsButton">C</button>
+                </span>
+        </form>
+        <div id="history">
+            <ul id="historyList">
+
+            </ul>
+        </div>
+    </section>
 </body>
 </html>
