@@ -10,14 +10,16 @@
     <title>Calculator</title>
 </head>
 <body>
-    <header>Server Serving Up Some Calculations</header>
+    <header>
+        <h2>Server Serving Up Some Calculations</h2>
+    </header>
     <section id="calculatorInput">
         <form>
             <input type="text" id="inputOne" placeholder="First Number">
                 <span id="operatorButtons">
                     <button id="addButton" class="operators">+</button>
                     <button id="subtractButton" class="operators">-</button>
-                    <button id="multiplyButton" class="operators">x</button>
+                    <button id="multiplyButton" class="operators">*</button>
                     <button id="divideButton" class="operators">/</button>
                 </span>
 
@@ -29,6 +31,7 @@
                 </span>
         </form>
         <div id="history">
+            <span id="answerPost"></span>
             <ul id="historyList">
 
             </ul>
