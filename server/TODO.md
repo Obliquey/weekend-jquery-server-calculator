@@ -18,4 +18,7 @@
 
 
         <!-- MORE TO-DO -->
-        // Extract current answer from object within history array (maybe put it into a different property) so it can be posted on the DOM separately.
+        // Extract current answer from object within history array (maybe put it into a different property) so it can be posted on the DOM separately.✅
+
+
+<!-- STRETCH GOAL TO-DO? -->
