@@ -22,3 +22,14 @@
 
 
 <!-- STRETCH GOAL TO-DO? -->
+// 1. Convert interface to actual calculator interface
+    // a. HTML button elements for each number and operator AND clear field button AND decimal point
+    // b. jQuery for appending each button's value to the calculator field
+    // c. CSS for formatting calculator buttons
+    // d. Input validation for *2* values and an operator
+        // -**jQuery + JS to retrieve input string and PARSE for individual values and the operator*will probably be server-side***
+// 2. Create a Clear History button *DELETE req to the server*
+    // a. Also would need to proc a new GET req for history, clearing the history field with new, empty history array
+// 3. Make EACH history element an interactable piece, that when clicked it inputs the string BACK into the calculator field
+    // a. Might just be a click listener for the history elements, then $(this).text() to retrieve the calculation which we then put back into the field.
+    // b. Would then need to automatically run the calculate function and post answer of clicked element to the DOM 

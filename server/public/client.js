@@ -83,9 +83,11 @@ function postHistory(){
             
             // loop through array, prepending history of calculations to DOM
             for (let object of answerArray) {
-            $('#historyList').prepend(`
-                <li class="answer"> ${object.answer}</li>
-            `)
+                let calculation = object.answer.slice(0, (object.answer.indexOf('=')));
+
+                $('#historyList').prepend(`
+                    <li class="answer"> ${calculation}</li>
+                `)
             }
         }
     ).catch(
@@ -103,16 +105,18 @@ function initHistory () {
     }).then( function (history) {
         $('#historyList').empty();
         for (let object of history) {
-            $('#historyList').prepend(`
-                <li class="answer"> ${object.answer}</li>
-            `)
+            let calculation = object.answer.slice(0, (object.answer.indexOf('=')));
+                
+                $('#historyList').prepend(`
+                    <li class="answer"> ${calculation}</li>
+                `)
             }
     }).catch(
         function(error) {
             console.log("Couldn't retrieve calculation history");
         }
     )
-}
+}//end initHistory
 // function to event.preventDefault on all UI interactions
 function stopRefresh(event) {
     event.preventDefault();
