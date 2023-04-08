@@ -3,7 +3,7 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log("We're Live!");
-
+    initHistory();
     // Stopping event default
     $('#calculatorInput').on('click', stopRefresh)
     // This will be the function that receives the user input and make a POST req to the server
@@ -73,14 +73,18 @@ function postHistory(){
         url: '/history'
     }).then(
         function (answerArray) {
-            $('#history').empty();
-            let latestAnswer = answerArray[answerArray.length - 1].answer
+            $('#historyList').empty();
+            $('#answerPost').empty();
+            let latestcalculation = answerArray[answerArray.length - 1].answer;
 
+            // need to extract current answer and post to DOM
+            let postedAnswer = latestcalculation.substr(latestcalculation.indexOf('=') + 1);
+            $('#answerPost').append(`<h3>${postedAnswer}</h3>`);
             
             // loop through array, prepending history of calculations to DOM
             for (let object of answerArray) {
-            $('#history').prepend(`
-                <li class="answer">➡️ ${object.answer}</li>
+            $('#historyList').prepend(`
+                <li class="answer"> ${object.answer}</li>
             `)
             }
         }
@@ -91,7 +95,24 @@ function postHistory(){
     )
 }//end postCalculation
 
-
+// function to initialize server-side history onto the DOM
+function initHistory () {
+    $.ajax({
+        method: 'GET',
+        url: '/historyInit'
+    }).then( function (history) {
+        $('#historyList').empty();
+        for (let object of history) {
+            $('#historyList').prepend(`
+                <li class="answer"> ${object.answer}</li>
+            `)
+            }
+    }).catch(
+        function(error) {
+            console.log("Couldn't retrieve calculation history");
+        }
+    )
+}
 // function to event.preventDefault on all UI interactions
 function stopRefresh(event) {
     event.preventDefault();

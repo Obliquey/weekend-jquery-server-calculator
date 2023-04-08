@@ -44,17 +44,23 @@ app.post('/calculation', (req, res) => {
     operation = req.body;
     // let answerObject = {answer: `${calculate(operation)}`}
     history.push({answer: `${calculate(operation)}`});
-    console.log(history);
     
     res.sendStatus(201);
 })//end POST /calculation
 
-// server function to process GET req to send answer history back to client-side.
+// server function to process GET req to send answer + history back to client-side.
 app.get('/history', (req, res) => {
-    console.log("We're in GET /answer");
+    console.log("We're in GET /history");
 
     res.send(history);
-})//end GET /answer
+})//end GET /history
+
+// initial request for server-side history
+app.get('/historyInit', (req, res) => {
+    console.log("We're in GET /historyInit");
+
+    res.send(history);
+})//end GET /historyInit
 
 
 
